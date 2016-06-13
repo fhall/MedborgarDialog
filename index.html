@@ -1,29 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Medborgar Dialog</title>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <!--Import Google Icon Font-->
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
 
-    <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Medborgar Dialog</h1>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
-  </body>
-</html>
+    <body>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">Cement fabriken</a>
+        </div>
+      </nav>
+      <div>
+        Du har passerat cement fabriken.
+      </div>
+      <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>Dåtid</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Nutid</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Framtid</div>
+          <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+        </li>
+      </ul>
+      <!--Import jQuery before materialize.js-->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+    </body>
+  </html>
