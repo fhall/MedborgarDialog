@@ -5,7 +5,7 @@ body{
 
 .collapsible-header {
     min-height: 6rem;
-    background-image: url(images/header.png);
+    background-image: url(images/header_history.svg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
