@@ -4,10 +4,10 @@
       <meta charset="utf-8">
       <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="style.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-
     <body>
       <nav>
         <div class="nav-wrapper">
@@ -16,19 +16,33 @@
       </nav>
       <div class="container">
       <p>Du har passerat <span id="name"></span> Klicka på länkarna för att se hur det har sett ut, och tyck till om framtiden.</p>
-
       <ul class="collapsible" data-collapsible="accordion">
         <li>
-          <div class="collapsible-header" style="min-height: 6rem;"><img class="responsive-img" scr="images/header.png"></div>
-          <div class="collapsible-body"><img class="responsive-img"  id="img-history"><p id="history"></p></div>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>Dåtid
+          </div>
+          <div class="collapsible-body">
+            <img class="responsive-img" id=img-history>
+            <p id="history"></p>
+          </div>
         </li>
         <li>
-          <div class="collapsible-header" style="min-height: 6rem;"><i class="material-icons">place</i>Nutid</div>
-          <div class="collapsible-body"><img class="responsive-img" id="img-today"><p id="today"></p></div>
+          <div class="collapsible-header">
+            <i class="material-icons">place</i>Nutid
+          </div>
+          <div class="collapsible-body">
+            <img class="responsive-img" id="img-today">
+            <p id="today"></p>
+          </div>
         </li>
         <li>
-          <div class="collapsible-header" style="min-height: 6rem;"><i class="material-icons">whatshot</i>Framtid</div>
-          <div class="collapsible-body"><img class="responsive-img" id="img-future"><p id="future"></p> <i class="material-icons">thumb_down</i><i class="material-icons">thumb_up</i></p>   </div>
+          <div class="collapsible-header">
+            <i class="material-icons">whatshot</i>Framtid
+          </div>
+          <div class="collapsible-body"><img class="responsive-img" id="img-future"><p id="future"></p>
+            <i class="medium material-icons">thumb_down</i>
+            <i class="medium material-icons">thumb_up</i></p>
+          </div>
         </li>
       </ul>
     </div>
