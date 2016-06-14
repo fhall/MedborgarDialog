@@ -6,10 +6,20 @@ body{
 .collapsible-header {
     min-height: 6rem;
     background-image: url(images/header.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 }
 
 nav{
   background-color: #0097a7;
+}
+
+.collapsible-body p {
+    padding: 0;
+
+}
+
+.card {
+    margin: 0rem 0 0rem 0;
 }
