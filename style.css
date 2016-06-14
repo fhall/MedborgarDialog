@@ -6,3 +6,12 @@
     background-repeat: no-repeat;
 
 }
+
+.collapsible-body p {
+    padding: 0;
+
+}
+
+.card {
+    margin: 0rem 0 0rem 0;
+}
