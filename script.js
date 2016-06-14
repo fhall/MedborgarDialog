@@ -45,12 +45,13 @@ $(document).ready(function() {
 
   function addBuildingData() {
     $('#title').html(building.name);
-    $('#img-today').attr('src',building.images.today);
-    $('#img-future').attr('src',building.images.future);
-    $('#img-history').attr('src',building.images.history);
+    $('#img-today').attr('src', building.images.today);
+    $('#img-future').attr('src', building.images.future);
+    $('#img-history').attr('src', building.images.history);
     $('#future').html(building.story.future);
     $('#history').html(building.story.history);
     $('#today').html(building.story.today);
+    $('#name').html(building.name + '.');
   }
 
 
