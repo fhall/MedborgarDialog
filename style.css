@@ -1,8 +1,15 @@
-.collapsible-header {
+body{
+  background-color: #e0f2f1;
+  color: #424242 ;
+}
 
+.collapsible-header {
     min-height: 6rem;
     background-image: url(images/header.png);
     background-size: 100%;
     background-repeat: no-repeat;
+}
 
+nav{
+  background-color: #0097a7;
 }
