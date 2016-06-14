@@ -1,26 +1,29 @@
-body{
-  background-color: #e0f2f1;
-  color: #424242 ;
+body {
+    background-color: #e0f2f1;
+    color: #424242;
 }
 
 .collapsible-header {
     min-height: 6rem;
-     width: 100%;
-    background-image: url(images/header_history.svg);
+    width: 100%;
+    
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: block;
+    cursor: pointer;
+    line-height: 3rem;
+    padding: 0 1rem;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd
 }
 
-nav{
-  background-color: #0097a7;
+nav {
+    background-color: #0097a7;
 }
-
 .collapsible-body p {
     padding: 0;
-
 }
-
 .card {
     margin: 0rem 0 0rem 0;
 }
