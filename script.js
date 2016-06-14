@@ -25,7 +25,7 @@ $(document).ready(function() {
   }
 
   //Function to append data to html elements
-  var addBuildingData = () => {
+  var addBuildingData = function() {
     $('#title').html(building.name);
     $('#img-today').attr('src', building.images.today);
     $('#img-future').attr('src', building.images.future);
@@ -37,7 +37,7 @@ $(document).ready(function() {
   }
 
   //Function to GET all data by making two get requests and applying it to building object
-  var getData = () => {
+  var getData = function() {
     //GET position of interest building info
     $.get('http://build.dia.mah.se/pois/' + id, function(data, status) {
       building.id = data['results'][0]['id'];
