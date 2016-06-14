@@ -2,8 +2,9 @@
 
     min-height: 6rem;
     background-image: url(images/header.png);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
 
 }
 
