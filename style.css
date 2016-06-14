@@ -1,5 +1,8 @@
 .collapsible-header {
 
     min-height: 6rem;
+    background-image: url(images/header.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
 
 }
