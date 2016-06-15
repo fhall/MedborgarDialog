@@ -61,15 +61,49 @@ $(document).ready(function() {
   //Get data and append it to bulding object
   getData();
 
+  //Function for voting on future plans
+  $('.center-align').bind('click', function(event) {
+    $.get('http://build.dia.mah.se/ugc/01749/votes', function(data, status) {
+      if (status === 'success') {
+        var upVoteCount = data['votes'][0]['up'];
+        var downVoteCount = data['votes'][0]['down'];
+        if (event.target.id === 'future') {
+          upVoteCount++
+          $.ajax({
+            url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
+            type: 'PUT',
+            data: {
+              up: upVoteCount,
+              down: downVoteCount
+            },
+            success: function(response) {
+              console.log(response);
+            }
+          });
+        } else if (event.target.id !== 'future') {
+          downVoteCount++
+          $.ajax({
+            url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
+            type: 'PUT',
+            data: {
+              up: upVoteCount,
+              down: downVoteCount
+            },
+            success: function(response) {
+              console.log(response);
+            }
+          });
+          //console.log('working');
+        }
+      }
+    });
+  });
   /*
-  //UGC POST THUMBS UP OR THUMBS DOWN
-  $.post('http://build.dia.mah.se/ugc/:id/:key/:index', {
-    id: undefined, //NOTE String
-    key: undefined, //NOTE String optional
-    index: undefined //NOTE String optional
+  $.post('http://build.dia.mah.se/ugc/' + id + '/votes', {
+    up: upVoteCount,
+    down: downVoteCount
   }, function(data, status) {
     console.log(data);
-    console.log(status);
-  });*/
-
+  });
+  */
 });
