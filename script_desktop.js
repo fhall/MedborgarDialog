@@ -24,7 +24,7 @@ $(document).ready(function() {
     }
 
     var getFromPoi = function() {
-      return $.get('http://build.dia.mah.se/pois/' + id, function(data, status) {
+      return $.get('http://build.dia.mah.se/pois/' + id, function(data) {
         building.id = data['results'][0].id;
         building.name = data['results'][0].name;
         building.address = data['results'][0]['extras']['info']['address'].full;
@@ -32,7 +32,7 @@ $(document).ready(function() {
     }
 
     var getFromUgc = function() {
-      return $.get('http://build.dia.mah.se/ugc/' + id + '/stories', function(data, status) {
+      return $.get('http://build.dia.mah.se/ugc/' + id + '/stories', function(data) {
         building.images.today = data['stories'][0]['today'].image;
         building.images.future = data['stories'][0]['future'].image;
         building.images.history = data['stories'][0]['history'].image;

@@ -39,14 +39,14 @@ $(document).ready(function() {
   //Function to GET all data by making two get requests and applying it to building object
   var getData = function() {
     //GET position of interest building info
-    $.get('http://build.dia.mah.se/pois/' + id, function(data, status) {
+    $.get('http://build.dia.mah.se/pois/' + id, function(data) {
       building.id = data['results'][0]['id'];
       building.name = data['results'][0]['extras']['info'].name;
       building.address = data['results'][0]['extras']['info']['address'].full;
     });
 
     //GET building story data
-    $.get('http://build.dia.mah.se/ugc/' + id + '/stories', function(data, status) {
+    $.get('http://build.dia.mah.se/ugc/' + id + '/stories', function(data) {
       building.images.today = data['stories'][0]['today'].image;
       building.images.future = data['stories'][0]['future'].image;
       building.images.history = data['stories'][0]['history'].image;
