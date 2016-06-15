@@ -43,37 +43,37 @@ $(document).ready(function() {
     }
 
     var addCard = function() {
-      $('#main-row').append('<div class="row col s3">'+
-                            '<div class="card medium">'+
-                            '<div class="card-image">'+
-                            '<img src="' + building.images.future + '">'+
-                            '</div>'+
-                            '<div class="card-content">'+
-                            '<span class="card-title">' + building.name +'</span>'+
-                            '<p>' + building.story.today + '</p>'+
-                            '</div>'+
-                            '<div class="card-action">'+
-                            '<a class="waves-effect waves-light btn modal-trigger" href="#' + building.id + '">Läs mer</a>'+
-                            '</div>'+
-                            '</div>'+
-                            '</div>');
-      $('#main').append('<div id="' + building.id + '" class="modal">'+
-                          '<div class="modal-content">'+
-                            '<h4>' + building.name + '</h4>'+
-                            '<p>' + 'Comments' +'</p>'+
-                          '</div>'+
-                          '<div class="modal-footer">'+
-                            '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>'+
-                          '</div>'+
-                        '</div>')
+      $('#main-row').append('<div class="row col s3">' +
+        '<div class="card medium">' +
+        '<div class="card-image">' +
+        '<img src="' + building.images.future + '">' +
+        '</div>' +
+        '<div class="card-content">' +
+        '<span class="card-title">' + building.name + '</span>' +
+        '<p>' + building.story.today + '</p>' +
+        '</div>' +
+        '<div class="card-action">' +
+        '<a class="waves-effect waves-light btn modal-trigger" href="#' + building.id + '">Läs mer</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>');
+      $('#main').append('<div id="' + building.id + '" class="modal">' +
+        '<div class="modal-content">' +
+        '<h4>' + building.name + '</h4>' +
+        '<p>' + 'Comments' + '</p>' +
+        '</div>' +
+        '<div class="modal-footer">' +
+        '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>' +
+        '</div>' +
+        '</div>')
       $('.modal-trigger').leanModal();
     }
 
     $.when(getFromPoi(), getFromUgc()).then(addCard);
   }
-  presentCard("01749");
-  presentCard("01750");
-  presentCard("01751");
-  presentCard("01752");
-  presentCard("01753");
+
+  for (var i = 49; i <= 53; i++) {
+    var arg = '017' + i.toString();
+    presentCard(arg);
+  }
 });
