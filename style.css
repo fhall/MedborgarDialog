@@ -6,7 +6,6 @@ body {
 .collapsible-header {
     min-height: 6rem;
     width: 100%;
-    
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -19,11 +18,23 @@ body {
 }
 
 nav {
-    background-color: #0097a7;
+    background-color: #b2ebf2;
 }
+
+#title {
+  color: #00838f;
+  letter-spacing: 3px;
+}
+
+#info {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .collapsible-body p {
     padding: 0;
 }
+
 .card {
     margin: 0rem 0 0rem 0;
 }
