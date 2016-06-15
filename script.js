@@ -62,39 +62,47 @@ $(document).ready(function() {
   getData();
 
   //Function for voting on future plans
-  $('.center-align').bind('click', function(event) {
+  $('#upVote').bind('click', function() {
     $.get('http://build.dia.mah.se/ugc/01749/votes', function(data, status) {
+      console.log(data);
       if (status === 'success') {
         var upVoteCount = data['votes'][0]['up'];
         var downVoteCount = data['votes'][0]['down'];
-        if (event.target.id === 'future') {
-          upVoteCount++
-          $.ajax({
-            url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
-            type: 'PUT',
-            data: {
-              up: upVoteCount,
-              down: downVoteCount
-            },
-            success: function(response) {
-              console.log(response);
-            }
-          });
-        } else if (event.target.id !== 'future') {
-          downVoteCount++
-          $.ajax({
-            url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
-            type: 'PUT',
-            data: {
-              up: upVoteCount,
-              down: downVoteCount
-            },
-            success: function(response) {
-              console.log(response);
-            }
-          });
-          //console.log('working');
-        }
+        upVoteCount++
+        $.ajax({
+          url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
+          type: 'PUT',
+          data: {
+            up: upVoteCount,
+            down: downVoteCount
+          },
+          success: function(response) {
+            console.log(response);
+            console.log('voting up');
+          }
+        });
+      }
+    });
+  });
+  $('#downVote').bind('click', function() {
+    $.get('http://build.dia.mah.se/ugc/01749/votes', function(data, status) {
+      console.log(data);
+      if (status === 'success') {
+        var upVoteCount = data['votes'][0]['up'];
+        var downVoteCount = data['votes'][0]['down'];
+        downVoteCount++
+        $.ajax({
+          url: 'http://build.dia.mah.se/ugc/' + id + '/votes',
+          type: 'PUT',
+          data: {
+            up: upVoteCount,
+            down: downVoteCount
+          },
+          success: function(response) {
+            console.log(response);
+            console.log('voting down');
+          }
+        });
       }
     });
   });
