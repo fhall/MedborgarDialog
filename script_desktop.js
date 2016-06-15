@@ -69,7 +69,10 @@ $(document).ready(function() {
       $('.modal-trigger').leanModal();
     }
 
-    $.when(getFromPoi(), getFromUgc()).then(addCard);
+    $.when(getFromPoi(), getFromUgc())
+      .then(addCard, function() {
+        throw new Error('Something went wrong with your request');
+      });
   }
 
   for (var i = 49; i <= 53; i++) {
