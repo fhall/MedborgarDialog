@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  /*if (window.location.protocol != "http:")
-    window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);*/
+  if (window.location.protocol != "http:")
+    window.location.href = "http:" + window.location.href.substring(window.location.protocol.length);
   //Function to get url params
   $.urlParam = function(name) {
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
