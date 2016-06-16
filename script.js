@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   //Initiliazes the drop down menu
   $('select').material_select();
+
   //Function to get url params
   $.urlParam = function(name) {
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -78,12 +79,13 @@ $(document).ready(function() {
 
   //Function for voting up on future plans
   $('#upVote').bind('click', function() {
+    //alert($('#upVote').attr('disabled'));
     $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
       if (status === 'success') {
         var upVoteCount = data['votes'][0]['up'];
-        console.log(upVoteCount);
+        console.log(upVoteCount); //TODO cleanup
         var downVoteCount = data['votes'][0]['down'];
-        console.log(downVoteCount);
+        console.log(downVoteCount); //TODO cleanup
         upVoteCount++
         $.ajax({
           url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
@@ -100,6 +102,7 @@ $(document).ready(function() {
             $('.determinate').css({
               'width': downVoteWidth
             });
+            $('#upVote').unbind();
           }
         });
       }
@@ -111,9 +114,9 @@ $(document).ready(function() {
     $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
       if (status === 'success') {
         var upVoteCount = data['votes'][0]['up'];
-        console.log(upVoteCount);
+        console.log(upVoteCount); //TODO cleanup
         var downVoteCount = data['votes'][0]['down'];
-        console.log(downVoteCount);
+        console.log(downVoteCount); //TODO cleanup
         downVoteCount++
         $.ajax({
           url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
@@ -130,15 +133,16 @@ $(document).ready(function() {
             $('.determinate').css({
               'width': downVoteWidth
             });
+            $('#downVote').unbind();
           }
         });
       }
     });
   });
 
-  //Get data and append it to bulding object
+  //Invoke get data and append it to bulding object
   getData();
 
-  //Get current vote status
+  //Invoke get current vote status
   getCurrentVoteStatus();
 });
