@@ -20,9 +20,13 @@ $(document).ready(function() {
           name: undefined,
           comment: undefined
         }
+      ],
+      tags: [
       ]
     }
 
+    var allTags;
+    var allVals;
     var downVoteWidth = "";
 
     var getFromPoi = function() {
@@ -55,6 +59,41 @@ $(document).ready(function() {
       });
     }
 
+    var buildTr = function(name, no, percent) {
+      return  '<tr>'+
+                '<td>' + name + '</td>'+
+                '<td>' + no + '</td>'+
+              '</tr>';
+    }
+
+    var getTags = function() {
+      return $.get('http://build.dia.mah.se/ugc/' + id + '/tag/', function(response) {
+        var tags = [];
+        var vals = [];
+        var tagsToString = [];
+        //Get all tag keys from tags array
+        for (var i = 0; i < response['tag'].length; i++) {
+          tags.push(Object.keys(response['tag'][i]));
+        }
+        //Stringify all keys to one string and insert them to an array
+        for (var j = 0; j < tags.length; j++) {
+          tagsToString.push(tags.splice(j, tags.length).toString());
+        }
+        //Split array string into seperate strings
+        allTags = tagsToString[0].split(',');
+        for(var i = 0; i < allTags.length; i++) {
+          vals[i] = response['tag'][i][allTags[i]];
+        }
+        allVals = vals;
+        //Add all tags to tags menu in DOM;
+        for (var k = 0; k < allTags.length; k++) {
+          console.log($('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>'));
+          //Initiliazes the drop down menu
+          $('select').material_select();
+        }
+      });
+    }
+
 
     var addCard = function() {
       $('#main-row').append('<div class="row col s3">' +
@@ -70,24 +109,16 @@ $(document).ready(function() {
         '</div>' +
         '</div>' +
         '</div>');
-      /*
-      $('#main').append('<div id="' + building.id + '" class="modal">' +
-        '<div class="modal-content">' +
-        '<h4>' + building.name + '</h4>' +
-        '<p>' + 'Comments' + '</p>' +
-        '</div>' +
-        '<div class="modal-footer">' +
-        '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>' +
-        '</div>' +
-        '</div>')
-        */
+
       $('#main').append('<div id="' + building.id + '" class="modal modal-fixed-footer">'+
         '<div class="modal-content">'+
           '<h4>' + building.name + '</h4>'+
           '<div class="center-align">'+
+            '<p>Opinion:</p>'+
             '<div class="progress">'+
               '<div class="determinate" style="width:' + downVoteWidth + '">'+
               '</div>'+
+              '<br>'+
             '</div>'+
           '</div>'+
           '<h5>Vad ska vi utöka platsen med?</h5>'+
@@ -96,26 +127,10 @@ $(document).ready(function() {
               '<tr>'+
                   '<th data-field="id">Förslag</th>'+
                   '<th data-field="votes">Röster</th>'+
-                  '<th data-field="percent">%</th>'+
               '</tr>'+
             '</thead>'+
 
-            '<tbody>'+
-              '<tr>'+
-                '<td>Soptunnor</td>'+
-                '<td>10</td>'+
-                '<td>62.5%</td>'+
-              '</tr>'+
-              '<tr>'+
-                '<td>Lekplats</td>'+
-                '<td>5</td>'+
-                '<td>31.25%</td>'+
-              '</tr>'+
-              '<tr>'+
-                '<td>Toaletter</td>'+
-                '<td>1</td>'+
-                '<td>6.25%</td>'+
-              '</tr>'+
+            '<tbody id="tb-' + building.id + '">'+
             '</tbody>'+
           '</table>'+
 
@@ -132,11 +147,14 @@ $(document).ready(function() {
         '<div class="modal-footer">'+
           '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>'+
         '</div>'+
-      '</div>')
+      '</div>');
+      for(var i = 0; i < allTags.length; i++) {
+        $('#tb-' + building.id).append(buildTr(allTags[i], allVals[i]));
+      }
       $('.modal-trigger').leanModal();
     }
 
-    $.when(getFromPoi(), getFromUgc(), getCurrentVoteStatus())
+    $.when(getFromPoi(), getFromUgc(), getCurrentVoteStatus(), getTags())
       .then(addCard, function() {
         throw new Error('Something went wrong with your request');
       });
