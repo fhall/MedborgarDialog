@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  //Initiliazes the drop down menu
   $('select').material_select();
   //Function to get url params
   $.urlParam = function(name) {
