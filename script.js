@@ -77,68 +77,86 @@ $(document).ready(function() {
     });
   }
 
-  //Function for voting up on future plans
-  $('#upVote').bind('click', function() {
-    //alert($('#upVote').attr('disabled'));
-    $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
-      if (status === 'success') {
-        var upVoteCount = data['votes'][0]['up'];
-        console.log(upVoteCount); //TODO cleanup
-        var downVoteCount = data['votes'][0]['down'];
-        console.log(downVoteCount); //TODO cleanup
-        upVoteCount++
-        $.ajax({
-          url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
-          type: 'PUT',
-          data: {
-            up: upVoteCount,
-            down: downVoteCount
-          },
-          success: function(response) {
-            var downVotesTotal = response['other']['votes'][0]['down'];
-            var upVotesTotal = response['other']['votes'][0]['up'];
-            var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
-            var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
-            $('.determinate').css({
-              'width': downVoteWidth
-            });
-            $('#upVote').unbind();
-          }
-        });
-      }
-    });
-  });
+  //Function that handles all things voting
+  var voting = function() {
+    //Function that disables voting after one vote
+    var disableBtn = function() {
+      var upId = $('#upVote');
+      var downId = $('#downVote')
+      upId.unbind();
+      downId.unbind();
+      upId.removeClass('btn-floating green');
+      upId.addClass('btn-floating grey');
+      downId.removeClass('btn-floating red');
+      downId.addClass('btn-floating grey');
+    }
 
-  //Function for voting down on future plans
-  $('#downVote').bind('click', function() {
-    $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
-      if (status === 'success') {
-        var upVoteCount = data['votes'][0]['up'];
-        console.log(upVoteCount); //TODO cleanup
-        var downVoteCount = data['votes'][0]['down'];
-        console.log(downVoteCount); //TODO cleanup
-        downVoteCount++
-        $.ajax({
-          url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
-          type: 'PUT',
-          data: {
-            up: upVoteCount,
-            down: downVoteCount
-          },
-          success: function(response) {
-            var downVotesTotal = response['other']['votes'][0]['down'];
-            var upVotesTotal = response['other']['votes'][0]['up'];
-            var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
-            var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
-            $('.determinate').css({
-              'width': downVoteWidth
-            });
-            $('#downVote').unbind();
-          }
-        });
-      }
+    //Function for voting up on future plans
+    $('#upVote').bind('click', function() {
+      //alert($('#upVote').attr('disabled'));
+      $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
+        if (status === 'success') {
+          var upVoteCount = data['votes'][0]['up'];
+          console.log(upVoteCount); //TODO cleanup
+          var downVoteCount = data['votes'][0]['down'];
+          console.log(downVoteCount); //TODO cleanup
+          upVoteCount++
+          $.ajax({
+            url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
+            type: 'PUT',
+            data: {
+              up: upVoteCount,
+              down: downVoteCount
+            },
+            success: function(response) {
+              var downVotesTotal = response['other']['votes'][0]['down'];
+              var upVotesTotal = response['other']['votes'][0]['up'];
+              var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
+              var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
+              $('.determinate').css({
+                'width': downVoteWidth
+              });
+              disableBtn();
+            }
+          });
+        }
+      });
     });
-  });
+
+    //Function for voting down on future plans
+    $('#downVote').bind('click', function() {
+      $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
+        if (status === 'success') {
+          var upVoteCount = data['votes'][0]['up'];
+          console.log(upVoteCount); //TODO cleanup
+          var downVoteCount = data['votes'][0]['down'];
+          console.log(downVoteCount); //TODO cleanup
+          downVoteCount++
+          $.ajax({
+            url: 'http://build.dia.mah.se/ugc/' + id + '/votes/0',
+            type: 'PUT',
+            data: {
+              up: upVoteCount,
+              down: downVoteCount
+            },
+            success: function(response) {
+              var downVotesTotal = response['other']['votes'][0]['down'];
+              var upVotesTotal = response['other']['votes'][0]['up'];
+              var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
+              var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
+              $('.determinate').css({
+                'width': downVoteWidth
+              });
+              disableBtn();
+            }
+          });
+        }
+      });
+    });
+  }
+
+  //Invoke voting functionality
+  voting();
 
   //Invoke get data and append it to bulding object
   getData();
