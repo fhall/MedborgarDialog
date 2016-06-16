@@ -81,7 +81,7 @@ $(document).ready(function() {
         '</div>' +
         '</div>')
         */
-      $('#main').append('<div id="' + building.id + '" class="modal">'+
+      $('#main').append('<div id="' + building.id + '" class="modal modal-fixed-footer">'+
         '<div class="modal-content">'+
           '<h4>' + building.name + '</h4>'+
           '<div class="center-align">'+
