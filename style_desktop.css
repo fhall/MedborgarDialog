@@ -1,3 +1,16 @@
 .card-image{
   height:12rem;
 }
+
+.progress{
+  background-color: green;"
+}
+
+.determinate{
+  width: 50%;
+  background-color: red !important;
+}
+
+.card.medium{
+  height:340px;
+}

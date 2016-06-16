@@ -4,6 +4,7 @@
       <meta charset="utf-8">
       <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
       <link type="text/css" rel="stylesheet" href="style_desktop.css"/>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       <meta name="theme-color" content="#e0f2f1" />
     </head>
@@ -13,10 +14,12 @@
         <div class="nav-wrapper teal">
           <a href="#" class="brand-logo center">Malmö Stadsplanering</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#">Tillbaka</a></li>
+            <li><a class="modal-trigger" href="#add-pane">Lägg till objekt</a></li>
           </ul>
         </div>
+            <img id="add-pane" src="images/desktop_input.png" class="responsive-img modal" style="width:598px">
       </nav>
+
       <div id="main">
         <div class="row col s12" id="main-row">
         </div>
