@@ -39,7 +39,7 @@ nav {
 .progress {
     background-color: green;
     height: 1em;
-    max-width: 80%
+    max-width: 70%
 }
 .nav-wrapper {
     background-image: url(images/backgroundheader.svg);
