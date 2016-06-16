@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  $('select').material_select();
   //Function to get url params
   $.urlParam = function(name) {
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
