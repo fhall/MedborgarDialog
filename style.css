@@ -2,7 +2,6 @@ body {
     background-color: #e0f2f1;
     color: #424242;
 }
-
 .collapsible-header {
     min-height: 6rem;
     width: 100%;
@@ -16,35 +15,34 @@ body {
     background-color: #fff;
     border-bottom: 1px solid #ddd
 }
-
 nav {
     background-color: #b2ebf2;
 }
-
 #title {
-  color: #00838f;
-  letter-spacing: 1px;
+    color: #00838f;
+    letter-spacing: 1px;
 }
-
 #info {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
-
 .collapsible-body p {
     padding: 0;
 }
-
 .card {
     margin: 0rem 0 0rem 0;
 }
-
-.determinate{
-  width: 50%;
-  background-color: red !important;
+.determinate {
+    width: 50%;
+    background-color: red !important;
 }
-
-.progress{
-  background-color: green;
-  height: 1em;
+.progress {
+    background-color: green;
+    height: 1em;
+}
+.nav-wrapper {
+    background-image: url(images/backgroundheader.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
