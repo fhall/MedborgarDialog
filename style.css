@@ -35,10 +35,10 @@ nav {
 }
 .determinate {
     width: 50%;
-    background-color: #ef5350 !important;
+    background-color: #ef9a9a !important;
 }
 .progress {
-    background-color: #66bb6a;
+    background-color: #81c784;
     height: 0.7em;
     max-width: 70%
 }
