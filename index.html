@@ -2,140 +2,120 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#98d2d4" />
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#98d2d4" />
 </head>
-
 <body>
-    <nav>
-        <div class="nav-wrapper" style="background-image: url(images/backgroundheader.svg);background-size: cover;  background-repeat: no-repeat;
+  <nav>
+    <div class="nav-wrapper" style="background-image: url(images/backgroundheader.svg);background-size: cover;  background-repeat: no-repeat;
         background-position: center;">
-            <a href="#" id="title" class="brand-logo center"></a>
-        </div>
-    </nav>
-    <div class="container">
-        <div id="#info">
-            <p>Du har passerat <span id="name"></span> Klicka på länkarna för att se hur det har sett ut, och tyck till om framtiden.</p>
-        </div>
-        <ul class="collapsible" data-collapsible="accordion">
-            <li>
-                <div class="collapsible-header" style="background-image: url(images/historiaheader.svg);">
-
-                </div>
-                <div class="collapsible-body">
-                    <div class="card">
-                        <div class="card-image">
-                            <img id="img-history">
-                        </div>
-                        <div class="card-content">
-                            <p id="history"></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header" style="background-image: url(images/nutidheader.svg);">
-
-                </div>
-                <div class="collapsible-body">
-                    <div class="card">
-                        <div class="card-image">
-                            <img id="img-today">
-                        </div>
-                        <div class="card-content">
-                            <p id="today"></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="collapsible-header" style="background-image: url(images/framtidheader.svg);">
-
-                </div>
-                <div class="collapsible-body">
-                    <div class="card">
-                        <div class="card-image">
-                            <img id="img-future">
-                        </div>
-                        <div class="card-content">
-                            <p id="future"></p>
-                        </div>
-                    </div>
-                </div>
+      <a href="#" id="title" class="brand-logo center"></a>
     </div>
-    </li>
-    </ul>
-
-    <div class="row">
-        <div class="col s12">
-            <div class="card" style="background-color:#fbfdfd;">
-                <div class="card-content black-text">
-                  För att se resultatet, rösta!
-                    <div class="center-align">
-
-
-
-                        <!---  <form action="#">
+  </nav>
+  <div class="container">
+    <div id="#info">
+      <p>Du har passerat <span id="name"></span> Klicka på länkarna för att se hur det har sett ut, och tyck till om framtiden.</p>
+    </div>
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header" style="background-image: url(images/historiaheader.svg);">
+        </div>
+        <div class="collapsible-body">
+          <div class="card">
+            <div class="card-image">
+              <img id="img-history">
+            </div>
+            <div class="card-content">
+              <p id="history"></p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header" style="background-image: url(images/nutidheader.svg);">
+        </div>
+        <div class="collapsible-body">
+          <div class="card">
+            <div class="card-image">
+              <img id="img-today">
+            </div>
+            <div class="card-content">
+              <p id="today"></p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header" style="background-image: url(images/framtidheader.svg);">
+        </div>
+        <div class="collapsible-body">
+          <div class="card">
+            <div class="card-image">
+              <img id="img-future">
+            </div>
+            <div class="card-content">
+              <p id="future"></p>
+            </div>
+          </div>
+        </div>
+  </div>
+  </li>
+  </ul>
+  <div class="row">
+    <div class="col s12">
+      <div class="card" style="background-color:#fbfdfd;">
+        <div class="card-content black-text">
+          För att se resultatet, rösta!
+          <div class="center-align">
+            <!---  <form action="#">
                             <p class="range-field">
                                 <input type="range" id="test5" min="1" max="5" />
                             </p>
                         </form>-->
-
-
-                        <!---<img src="images/tums.svg" style="width:30%"> <img src="images/tumsd.svg" style="width:30%">-->
-
-                <div class="progress">
-                  <div class="determinate"></div>
-                    </div>
-                </div>
-
+            <!---<img src="images/tums.svg" style="width:30%"> <img src="images/tumsd.svg" style="width:30%">-->
+            <div class="progress">
+              <div class="determinate"></div>
             </div>
-        </div>
-
-    </div>
-    </div>
-
-    <div class="row">
-        <div class="col s12">
-
-            <div class="center-align">
-                <form >
-                    <div class="input-field col s12">
-                        <select name="tag">
-                          <option value="" disabled selected>Vad vill du helst se här i framtiden?</option>
-                            <option value="lekplats">Lekplats</option>
-                            <option value="parkering">Parkering</option>
-                            <option value="toalett">Toalett</option>
-                            <option value="cykelpump">Cykelpump</option>
-                        </select>
-
-                </form>
-                </div>
-
-            </div>
-
-
+          </div>
         </div>
       </div>
-
-    <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 35px; right: 24px;">
-        <a class="btn-floating btn-large" style="background-color:#b2ebf2;">
-            <i class="material-icons">thumbs_up_down</i>
-        </a>
-        <ul>
-            <li><a id="downVote" class="btn-floating red"><i class="material-icons">thumb_down</i></a></li>
-            <li><a id="upVote" class="btn-floating green"><i class="material-icons">thumb_up</i></a></li>
-        </ul>
     </div>
-    <!--Import jQuery before materialize.js-->
-    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+  </div>
+  <div class="row">
+    <div class="col s12">
+      <div class="center-align">
+        <form>
+          <div class="input-field col s12">
+            <select name="tag">
+              <option value="" disabled selected>Vad vill du helst se här i framtiden?</option>
+              <option value="lekplats">Lekplats</option>
+              <option value="parkering">Parkering</option>
+              <option value="toalett">Toalett</option>
+              <option value="cykelpump">Cykelpump</option>
+            </select>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fixed-action-btn horizontal click-to-toggle" style="bottom: 35px; right: 24px;">
+    <a class="btn-floating btn-large" style="background-color:#b2ebf2;">
+      <i class="material-icons">thumbs_up_down</i>
+    </a>
+    <ul>
+      <li><a id="downVote" class="btn-floating red"><i class="material-icons">thumb_down</i></a></li>
+      <li><a id="upVote" class="btn-floating green"><i class="material-icons">thumb_up</i></a></li>
+    </ul>
+  </div>
+  <!--Import jQuery before materialize.js-->
+  <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+  <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 
 </html>
