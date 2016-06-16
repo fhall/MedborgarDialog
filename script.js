@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-  //Initiliazes the drop down menu
-  $('select').material_select();
-
   //Function to get url params
   $.urlParam = function(name) {
       var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
@@ -155,6 +152,34 @@ $(document).ready(function() {
     });
   }
 
+  var getTags = function() {
+    var allTags;
+    $.get('http://build.dia.mah.se/ugc/' + id + '/tag/', function(response) {
+      var tags = [];
+      var tagsToString = [];
+      //Get all tag keys from tags array
+      for (var i = 0; i < response['tag'].length; i++) {
+        tags.push(Object.keys(response['tag'][i]));
+      }
+      //Stringify all keys to one string and insert them to an array
+      for (var j = 0; j < tags.length; j++) {
+        tagsToString.push(tags.splice(j, tags.length).toString());
+      }
+      //Split array string into seperate strings
+      allTags = tagsToString[0].split(',');
+
+      //Add all tags to tags menu in DOM;
+      for (var k = 0; k < allTags.length; k++) {
+        console.log($('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>'));
+        //Initiliazes the drop down menu
+        $('select').material_select();
+      }
+    });
+  }
+
+  //Invoke getTags from api
+  getTags();
+
   //Invoke voting functionality
   voting();
 
@@ -163,4 +188,5 @@ $(document).ready(function() {
 
   //Invoke get current vote status
   getCurrentVoteStatus();
+
 });
