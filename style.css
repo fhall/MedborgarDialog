@@ -31,6 +31,7 @@ nav {
 }
 .card {
     margin: 0rem 0 0rem 0;
+    font-size:16px;
 }
 .determinate {
     width: 50%;
@@ -39,6 +40,7 @@ nav {
 .progress {
     background-color: green;
     height: 1em;
+    max-width: 70%
 }
 .nav-wrapper {
     background-image: url(images/backgroundheader.svg);
