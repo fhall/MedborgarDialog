@@ -26,7 +26,6 @@ $(document).ready(function() {
         } else {
           $('#ratio').html(ratio);
         }
-
       }
     });
   }
@@ -98,7 +97,6 @@ $(document).ready(function() {
 
     //Function for voting up on future plans
     $('#upVote').bind('click', function() {
-      //alert($('#upVote').attr('disabled'));
       $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(data, status) {
         if (status === 'success') {
           var upVoteCount = data['votes'][0]['up'];
@@ -192,7 +190,6 @@ $(document).ready(function() {
 
       //Add all tags to tags menu in DOM;
       for (var k = 0; k < allTags.length; k++) {
-        //$('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>');
         //Append list items tags to drop down menu
         $('#dropdown2').append('<li><a href="#!" id="' + allTags[k] + '">' + allTags[k] + '</a></li>');
         //Initiliazes the drop down menu
@@ -202,14 +199,6 @@ $(document).ready(function() {
         var vals = []
         for (var i = 0; i < allTags.length; i++) {
           vals[i] = response['tag'][i][allTags[i]];
-          //console.log(vals[i] = response['tag'][i][allTags[i]]);
-        }
-
-        //take key and get positon in keys array
-        var takeKey = function(key) {
-          //console.log(response);
-          console.log(key);
-          console.log(allTags.indexOf(key));
         }
 
         //Bind click event to all list items
@@ -218,8 +207,6 @@ $(document).ready(function() {
           var keyPos = allTags.indexOf(key)
           var tagValue = {};
           tagValue[key] = parseInt(vals[keyPos]) + 1.;
-          //console.log(tagValue);
-          //console.log(allTags.indexOf(key));
           $.ajax({
             url: 'http://build.dia.mah.se/ugc/' + id + '/tag/' + keyPos.toString() + '/',
             type: 'PUT',
@@ -230,9 +217,6 @@ $(document).ready(function() {
           });
         });
       }
-
-      //console.log($('#tags option').length);
-      //console.log($('#tags option').html());
     });
   }
 
