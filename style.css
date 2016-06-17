@@ -31,15 +31,15 @@ nav {
 }
 .card {
     margin: 0rem 0 0rem 0;
-    font-size:16px;
+    font-size:18px;
 }
 .determinate {
     width: 50%;
-    background-color: red !important;
+    background-color: #ef9a9a !important;
 }
 .progress {
-    background-color: green;
-    height: 1em;
+    background-color: #81c784;
+    height: 0.7em;
     max-width: 70%
 }
 .nav-wrapper {
@@ -47,4 +47,15 @@ nav {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+}
+.overlay {
+    background: #e9e9e9;
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+
 }

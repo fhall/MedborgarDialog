@@ -16,9 +16,16 @@ $(document).ready(function() {
         var upVotesTotal = response['votes'][0]['up'];
         var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
         var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
+        var ratio = (Math.round((upVotesTotal - downVotesTotal))).toString();
         $('.determinate').css({
           'width': downVoteWidth
         });
+        if (ratio > 0) {
+              $('#ratio').html('+' + ratio);
+        } else {
+            $('#ratio').html(ratio);
+        }
+
       }
     });
   }
@@ -110,9 +117,15 @@ $(document).ready(function() {
               var upVotesTotal = response['other']['votes'][0]['up'];
               var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
               var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
+              var ratio = (Math.round((upVotesTotal - downVotesTotal))).toString();
               $('.determinate').css({
                 'width': downVoteWidth
               });
+              if (ratio > 0) {
+                    $('#ratio').html('+' + ratio);
+              } else {
+                  $('#ratio').html(ratio);
+              }
               disableBtn();
             }
           });
@@ -141,9 +154,15 @@ $(document).ready(function() {
               var upVotesTotal = response['other']['votes'][0]['up'];
               var totalVotes = parseInt(downVotesTotal) + parseInt(upVotesTotal);
               var downVoteWidth = (Math.round((downVotesTotal / totalVotes) * 100)).toString() + '%';
+              var ratio = (Math.round((upVotesTotal - downVotesTotal))).toString();
               $('.determinate').css({
                 'width': downVoteWidth
               });
+              if (ratio > 0) {
+                    $('#ratio').html('+' + ratio);
+              } else {
+                  $('#ratio').html(ratio);
+              }
               disableBtn();
             }
           });
