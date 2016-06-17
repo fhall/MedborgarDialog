@@ -60,10 +60,10 @@ $(document).ready(function() {
     }
 
     var buildTr = function(name, no, percent) {
-      return  '<tr>'+
-                '<td>' + name + '</td>'+
-                '<td>' + no + '</td>'+
-              '</tr>';
+      return '<tr>' +
+        '<td>' + name + '</td>' +
+        '<td>' + no + '</td>' +
+        '</tr>';
     }
 
     var getTags = function() {
@@ -81,7 +81,7 @@ $(document).ready(function() {
         }
         //Split array string into seperate strings
         allTags = tagsToString[0].split(',');
-        for(var i = 0; i < allTags.length; i++) {
+        for (var i = 0; i < allTags.length; i++) {
           vals[i] = response['tag'][i][allTags[i]];
         }
         allVals = vals;
@@ -110,45 +110,44 @@ $(document).ready(function() {
         '</div>' +
         '</div>');
 
-      $('#main').append('<div id="' + building.id + '" class="modal modal-fixed-footer">'+
-        '<div class="modal-content">'+
-          '<h4>' + building.name + '</h4>'+
-          '<div class="center-align">'+
-            '<p>Opinion:</p>'+
-            '<div class="progress">'+
-              '<div class="determinate" style="width:' + downVoteWidth + '">'+
-              '</div>'+
-              '<br>'+
-            '</div>'+
-          '</div>'+
-          '<h5>Vad ska vi utöka platsen med?</h5>'+
-          '<table class="highlight">'+
-            '<thead>'+
-              '<tr>'+
-                  '<th data-field="id">Förslag</th>'+
-                  '<th data-field="votes">Röster</th>'+
-              '</tr>'+
-            '</thead>'+
+      $('#main').append('<div id="' + building.id + '" class="modal modal-fixed-footer">' +
+        '<div class="modal-content">' +
+        '<h4>' + building.name + '</h4>' +
+        '<div class="center-align">' +
+        '<p>Opinion:</p>' +
+        '<div class="progress">' +
+        '<div class="determinate" style="width:' + downVoteWidth + '">' +
+        '</div>' +
+        '<br>' +
+        '</div>' +
+        '</div>' +
+        '<h5>Vad ska vi utöka platsen med?</h5>' +
+        '<table class="highlight">' +
+        '<thead>' +
+        '<tr>' +
+        '<th data-field="id">Förslag</th>' +
+        '<th data-field="votes">Röster</th>' +
+        '</tr>' +
+        '</thead>' +
 
-            '<tbody id="tb-' + building.id + '">'+
-            '</tbody>'+
-          '</table>'+
+        '<tbody id="tb-' + building.id + '">' +
+        '</tbody>' +
+        '</table>' +
 
-          '<div class="row valign-wrapper center-align">'+
-            '<div class="input-field col s10">'+
-              '<input placeholder="Lägg till förslag" id="first_name" type="text" class="validate">'+
-            '</div>'+
-            '<div class="col s2">'+
-              '<a class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
-            '</div>'+
-          '</div>'+
-
-        '</div>'+
-        '<div class="modal-footer">'+
-          '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>'+
-        '</div>'+
-      '</div>');
-      for(var i = 0; i < allTags.length; i++) {
+        '<div class="row valign-wrapper center-align">' +
+        '<div class="input-field col s10">' +
+        '<input placeholder="Lägg till förslag" id="first_name" type="text" class="validate">' +
+        '</div>' +
+        '<div class="col s2">' +
+        '<a class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="modal-footer">' +
+        '<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Stäng</a>' +
+        '</div>' +
+        '</div>');
+      for (var i = 0; i < allTags.length; i++) {
         $('#tb-' + building.id).append(buildTr(allTags[i], allVals[i]));
       }
       $('.modal-trigger').leanModal();

@@ -2,10 +2,11 @@ $(document).ready(function() {
 
   //Function to get url params
   $.urlParam = function(name) {
-      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-      return results[1] || 0;
-    }
-    //Save get url param id to var id
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
+  }
+
+  //Save get url param id to var id
   var id = $.urlParam('id');
 
   //Function to get current vote status
@@ -190,26 +191,53 @@ $(document).ready(function() {
       //Add all tags to tags menu in DOM;
       for (var k = 0; k < allTags.length; k++) {
         //$('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>');
-        $('#dropdown2').append('<li><a href="#!">' + allTags[k] + '</a></li>');
+        //Append list items tags to drop down menu
+        $('#dropdown2').append('<li><a href="#!" id="' + allTags[k] + '">' + allTags[k] + '</a></li>');
         //Initiliazes the drop down menu
         $('select').material_select();
+
+        //Value of each key in given index
+        var vals = []
+        for (var i = 0; i < allTags.length; i++) {
+          vals[i] = response['tag'][i][allTags[i]];
+          //console.log(vals[i] = response['tag'][i][allTags[i]]);
+        }
+
+        //take key and get positon in keys array
+        var takeKey = function(key) {
+          //console.log(response);
+          console.log(key);
+          console.log(allTags.indexOf(key));
+        }
+
+        //Bind click event to all list items
+        $('#' + allTags[k]).bind('click', function() {
+          var key = $(this).attr('id');
+          var keyPos = allTags.indexOf(key)
+          var tagValue = {};
+          tagValue[key] = parseInt(vals[keyPos]) + 1.;
+          //console.log(tagValue);
+          //console.log(allTags.indexOf(key));
+          $.ajax({
+            url: 'http://build.dia.mah.se/ugc/' + id + '/tag/' + keyPos.toString() + '/',
+            type: 'PUT',
+            data: tagValue,
+            success: function(result) {
+              //console.log(result);
+            }
+          });
+        });
       }
-      /*
-      var vals = []
-      for (var i = 0; i < allTags.length; i++) {
-        vals[i] = response['tag'][i][allTags[i]];
-        console.log(vals[i] = response['tag'][i][allTags[i]]);
-      }*/
+
       //console.log($('#tags option').length);
       //console.log($('#tags option').html());
     });
   }
 
-  $("div.overlay").click(function(){
+  $("div.overlay").click(function() {
     $(".overlay").hide();
     $(".fixed-action-btn.click-to-toggle").closeFAB();
-});
-
+  });
 
   //Invoke getTags from api
   getTags();
