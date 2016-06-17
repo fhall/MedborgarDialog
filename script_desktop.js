@@ -113,8 +113,8 @@ $(document).ready(function() {
       $('#main').append('<div id="' + building.id + '" class="modal modal-fixed-footer">'+
         '<div class="modal-content">'+
           '<h4>' + building.name + '</h4>'+
+          '<h5>Vad tycker medborgarna om projektet?</h5>'+
           '<div class="center-align">'+
-            '<p>Opinion:</p>'+
             '<div class="progress">'+
               '<div class="determinate" style="width:' + downVoteWidth + '">'+
               '</div>'+
