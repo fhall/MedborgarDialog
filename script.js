@@ -170,10 +170,18 @@ $(document).ready(function() {
 
       //Add all tags to tags menu in DOM;
       for (var k = 0; k < allTags.length; k++) {
-        console.log($('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>'));
+        $('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>');
         //Initiliazes the drop down menu
         $('select').material_select();
       }
+      /*
+      var vals = []
+      for (var i = 0; i < allTags.length; i++) {
+        vals[i] = response['tag'][i][allTags[i]];
+        console.log(vals[i] = response['tag'][i][allTags[i]]);
+      }*/
+      //console.log($('#tags option').length);
+      //console.log($('#tags option').html());
     });
   }
 
