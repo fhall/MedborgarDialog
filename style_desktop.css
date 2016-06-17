@@ -2,15 +2,50 @@
   height:12rem;
 }
 
-.progress{
-  background-color: green;"
+.progress {
+    background-color: #81c784;
+    height: 0.7em;
+    max-width: 70%;
 }
 
 .determinate{
   width: 50%;
-  background-color: red !important;
+  background-color: #ef9a9a !important;
 }
 
 .card.medium{
   height:340px;
+}
+
+.theme-color{
+  background-color: #98d2d4;
+}
+
+.theme-color-text{
+  color: #00838f;
+}
+
+nav .brand-logo {
+    position: absolute;
+    color: #00838f;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    white-space: nowrap;
+}
+
+.btn{
+  color:#00838f;
+}
+
+.btn-floating i{
+  color:#00838f;
+}
+
+nav ul a{
+  color:#00838f;
+}
+
+#main-row{
+  background-color: #e0f2f1;
 }
