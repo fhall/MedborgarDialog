@@ -204,6 +204,12 @@ $(document).ready(function() {
     });
   }
 
+  $("div.overlay").click(function(){
+    $(".overlay").hide();
+    $(".fixed-action-btn.click-to-toggle").closeFAB();
+});
+
+
   //Invoke getTags from api
   getTags();
 
