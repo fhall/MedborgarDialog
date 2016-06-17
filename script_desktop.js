@@ -105,7 +105,7 @@ $(document).ready(function() {
         '<span class="card-title">' + building.name + '</span>' +
         '</div>' +
         '<div class="card-action">' +
-        '<a class="waves-effect waves-light btn modal-trigger" href="#' + building.id + '">Läs mer</a>' +
+        '<a class="waves-effect waves-light btn modal-trigger theme-color" href="#' + building.id + '">Läs mer</a>' +
         '</div>' +
         '</div>' +
         '</div>');
@@ -139,7 +139,7 @@ $(document).ready(function() {
               '<input placeholder="Lägg till förslag" id="first_name" type="text" class="validate">'+
             '</div>'+
             '<div class="col s2">'+
-              '<a class="btn-floating btn-large waves-effect waves-light teal"><i class="material-icons">add</i></a>'+
+              '<a class="btn-floating btn-large waves-effect waves-light theme-color"><i class="material-icons">add</i></a>'+
             '</div>'+
           '</div>'+
 
