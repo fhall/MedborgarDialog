@@ -127,6 +127,7 @@ $(document).ready(function() {
               } else {
                 $('#ratio').html(ratio);
               }
+              $(".fixed-action-btn.click-to-toggle").closeFAB();
               disableBtn();
             }
           });
@@ -164,6 +165,7 @@ $(document).ready(function() {
               } else {
                 $('#ratio').html(ratio);
               }
+              $(".fixed-action-btn.click-to-toggle").closeFAB();
               disableBtn();
             }
           });
