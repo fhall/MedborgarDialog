@@ -21,9 +21,9 @@ $(document).ready(function() {
           'width': downVoteWidth
         });
         if (ratio > 0) {
-              $('#ratio').html('+' + ratio);
+          $('#ratio').html('+' + ratio);
         } else {
-            $('#ratio').html(ratio);
+          $('#ratio').html(ratio);
         }
 
       }
@@ -122,9 +122,9 @@ $(document).ready(function() {
                 'width': downVoteWidth
               });
               if (ratio > 0) {
-                    $('#ratio').html('+' + ratio);
+                $('#ratio').html('+' + ratio);
               } else {
-                  $('#ratio').html(ratio);
+                $('#ratio').html(ratio);
               }
               disableBtn();
             }
@@ -159,9 +159,9 @@ $(document).ready(function() {
                 'width': downVoteWidth
               });
               if (ratio > 0) {
-                    $('#ratio').html('+' + ratio);
+                $('#ratio').html('+' + ratio);
               } else {
-                  $('#ratio').html(ratio);
+                $('#ratio').html(ratio);
               }
               disableBtn();
             }
@@ -189,7 +189,8 @@ $(document).ready(function() {
 
       //Add all tags to tags menu in DOM;
       for (var k = 0; k < allTags.length; k++) {
-        $('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>');
+        //$('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>');
+        $('#dropdown2').append('<li><a href="#!">' + allTags[k] + '</a></li>');
         //Initiliazes the drop down menu
         $('select').material_select();
       }
