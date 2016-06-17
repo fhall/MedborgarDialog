@@ -128,6 +128,7 @@ $(document).ready(function() {
                 $('#ratio').html(ratio);
               }
               $(".fixed-action-btn.click-to-toggle").closeFAB();
+                Materialize.toast('Tack för din feedback!', 4000);
               disableBtn();
             }
           });
@@ -166,6 +167,7 @@ $(document).ready(function() {
                 $('#ratio').html(ratio);
               }
               $(".fixed-action-btn.click-to-toggle").closeFAB();
+              Materialize.toast('Tack för din feedback!', 4000);
               disableBtn();
             }
           });
@@ -226,6 +228,7 @@ $(document).ready(function() {
             data: tagValue,
             success: function(result) {
               //console.log(result);
+              Materialize.toast('Tack för din feedback!', 4000);
             }
           });
         });
