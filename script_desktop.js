@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+  //Function that dynamically generates card tiles
   var presentCard = function(id) {
     var building = {
       id: undefined,
@@ -29,6 +31,7 @@ $(document).ready(function() {
     var allVals;
     var downVoteWidth = "";
 
+    //GET data from point of interest
     var getFromPoi = function() {
       return $.get('http://build.dia.mah.se/pois/' + id, function(data) {
         building.id = data['results'][0].id;
@@ -37,6 +40,7 @@ $(document).ready(function() {
       });
     }
 
+    //GET data from ugc for generating building data
     var getFromUgc = function() {
       return $.get('http://build.dia.mah.se/ugc/' + id + '/stories', function(data) {
         building.images.today = data['stories'][0]['today'].image;
@@ -48,6 +52,7 @@ $(document).ready(function() {
       });
     }
 
+    //Function to get current vote status
     var getCurrentVoteStatus = function() {
       return $.get('http://build.dia.mah.se/ugc/' + id + '/votes/0', function(response, status) {
         if (status === 'success') {
@@ -59,6 +64,7 @@ $(document).ready(function() {
       });
     }
 
+    //Function to add element to list
     var buildTr = function(name, no, percent) {
       return '<tr>' +
         '<td>' + name + '</td>' +
@@ -66,6 +72,7 @@ $(document).ready(function() {
         '</tr>';
     }
 
+    //Function to get tags from ugc
     var getTags = function() {
       return $.get('http://build.dia.mah.se/ugc/' + id + '/tag/', function(response) {
         var tags = [];
@@ -94,7 +101,7 @@ $(document).ready(function() {
       });
     }
 
-
+    //Append card to DOM
     var addCard = function() {
       $('#main-row').append('<div class="row col s3">' +
         '<div class="card medium">' +
@@ -154,12 +161,14 @@ $(document).ready(function() {
       $('.modal-trigger').leanModal();
     }
 
+    //Promisification of requests to synchronously generate data
     $.when(getFromPoi(), getFromUgc(), getCurrentVoteStatus(), getTags())
       .then(addCard, function() {
         throw new Error('Something went wrong with your request');
       });
   }
 
+  //Invoke all card tiles
   for (var i = 49; i <= 53; i++) {
     var arg = '017' + i.toString();
     presentCard(arg);
