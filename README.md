@@ -1,5 +1,21 @@
 # MedborgarDialog
+
 Medborgar Dialog hackvecka konceptutveckling Malmö Högskola och Malmö Stad.
-Efter nedladdning se till att url till index.html avslutas med ?=01749 eller 01750,51,52,53 för att ändra objekt som visas.
+
+För att hämta hämta information om platser används fältet id i query-strängen (ex. example.com/index.html**?id=01749**).
+
+## Giltiga id
+
+| id    | Plats |
+|-------|-------|
+| 01749 | Cementfabriken |
+| 01750 | Niagara |
+| 01751 | Kvarteret Gäddan |
+| 01752 | Varvstaden |
+| 01752 | Sjukhusområdet |
+
+## Skärmdumpar
+
 ![alt tag](./app.png)
+
 ![alt tag](./desktop.png)
