@@ -16,6 +16,6 @@ För att hämta hämta information om platser används fältet id i query-strän
 
 ## Skärmdumpar
 
-![alt tag](./app.png)
+![alt tag](./images/screens/app.png)
 
-![alt tag](./desktop.png)
+![alt tag](./images/screens/desktop.png)
