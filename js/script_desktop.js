@@ -94,7 +94,7 @@ $(document).ready(function() {
         allVals = vals;
         //Add all tags to tags menu in DOM;
         for (var k = 0; k < allTags.length; k++) {
-          console.log($('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>'));
+          // console.log($('#tags').append('<option value="' + allTags[k] + '">' + allTags[k] + '</option>'));
           //Initiliazes the drop down menu
           $('select').material_select();
         }
